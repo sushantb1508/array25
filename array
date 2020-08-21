@@ -1,0 +1,22 @@
+def rotatemax(arr,n):
+    last = arr[n-1]
+    add=0
+    c=1
+    maxsum = float("-inf")
+    firstnum=arr[0]
+    for i in range(n):
+        arr[n-1-i]=arr[n-i-2]
+    arr[0]=last
+    for i in range(n):
+        add =add + i*arr[i]
+    maxsum = max(maxsum ,add)
+    print(maxsum)
+    
+    rotatemax(arr,n)
+    return maxsum
+if __name__ == "__main__":
+    arr=[8,3,1,2]
+    n=len(arr)
+    ans=rotatemax(arr,n)
+    print(ans)
+    
